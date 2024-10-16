@@ -11,29 +11,34 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
+        }
+        header {
+            background-color: #333;
+            padding: 10px;
             text-align: center;
         }
-        .container {
-            width: 80%;
-            max-width: 800px;
+        header h1 {
+            margin: 0;
+        }
+        .content {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .left {
+            width: 45%;
+        }
+        .right {
+            width: 45%;
         }
         textarea {
             width: 100%;
             height: 200px;
-            background-color: #333;
+            background-color: #222;
             color: #fff;
             border: 1px solid #555;
             padding: 10px;
             resize: none;
-        }
-        input[type="file"] {
-            margin-top: 20px;
-            color: #fff;
         }
         button {
             background-color: #444;
@@ -49,10 +54,16 @@
     </style>
 </head>
 <body>
-    <div class="container">
+    <header>
         <h1>Моя личная страница - Текст</h1>
-        <p id="text-content">Это пример текста. Вы можете редактировать его при вводе пароля.</p>
-        <button onclick="window.location.href='video.html'">Перейти на страницу с видео</button>
+    </header>
+    <div class="content">
+        <div class="left">
+            <p id="text-content">Это пример текста. Вы можете редактировать его при вводе пароля.</p>
+        </div>
+        <div class="right">
+            <button onclick="window.location.href='video.html'">Перейти на страницу с видео</button>
+        </div>
     </div>
 
     <script>
