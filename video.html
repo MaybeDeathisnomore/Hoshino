@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя личная страница - Видео</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            text-align: center;
+        }
+        video {
+            margin-top: 20px;
+            max-width: 100%;
+        }
+        button {
+            background-color: #444;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Моя личная страница - Видео</h1>
+        <video id="video-player" controls>
+            <source id="video-source" src="" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+        <button onclick="window.location.href='index.html'">Вернуться на страницу с текстом</button>
+    </div>
+
+    <script>
+        // Сохранение и загрузка видео
+        const savedVideo = localStorage.getItem('savedVideo');
+        if (savedVideo) {
+            document.getElementById('video-source').src = savedVideo;
+            document.getElementById('video-player').load();
+        }
+    </script>
+</body>
+</html>
