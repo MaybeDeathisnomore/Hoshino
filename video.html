@@ -19,8 +19,14 @@
             text-align: center;
         }
         video {
+            width: 90%;
+            height: 80%;
+            background-color: #111;
             margin-top: 20px;
-            max-width: 100%;
+        }
+        input[type="file"] {
+            margin-top: 20px;
+            color: #fff;
         }
         button {
             background-color: #444;
@@ -38,6 +44,7 @@
 <body>
     <div class="container">
         <h1>Моя личная страница - Видео</h1>
+        <input type="file" id="uploadVideo" accept="video/*">
         <video id="video-player" controls>
             <source id="video-source" src="" type="video/mp4">
             Ваш браузер не поддерживает видео.
@@ -47,10 +54,27 @@
 
     <script>
         // Сохранение и загрузка видео
+        const uploadVideo = document.getElementById('uploadVideo');
+        const videoSource = document.getElementById('video-source');
+        const videoPlayer = document.getElementById('video-player');
+
+        uploadVideo.addEventListener('change', function(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const fileURL = URL.createObjectURL(file);
+                videoSource.src = fileURL;
+                videoPlayer.load();
+
+                // Сохранение ссылки на видео в локальное хранилище
+                localStorage.setItem('savedVideo', fileURL);
+            }
+        });
+
+        // Загрузка сохраненного видео
         const savedVideo = localStorage.getItem('savedVideo');
         if (savedVideo) {
-            document.getElementById('video-source').src = savedVideo;
-            document.getElementById('video-player').load();
+            videoSource.src = savedVideo;
+            videoPlayer.load();
         }
     </script>
 </body>
